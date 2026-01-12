@@ -1,0 +1,21 @@
+name: HTML CI Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Check HTML files exist
+        run: |
+          ls
+          test -f index.html
+
+      - name: CI completed
+        run: echo "HTML CI pipeline completed successfully"
